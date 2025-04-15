@@ -3,72 +3,701 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neruu11's Site</title>
+    <meta name="description" content="Neruu11's portfolio website showcasing web development projects and skills">
+    <meta name="keywords" content="web developer, portfolio, frontend, Neruu11">
+    <meta name="author" content="Neruu11">
+    <title>Neruu11 | Web Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        body {
+        /* Base Styles */
+        :root {
+            --dark-navy: #0a192f;
+            --navy: #112240;
+            --light-navy: #1e293b;
+            --lightest-navy: #233554;
+            --navy-shadow: rgba(2, 12, 27, 0.7);
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --lightest-slate: #ccd6f6;
+            --white: #f1f5f9;
+            --green: #64ffda;
+            --blue: #38bdf8;
+        }
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: #0a192f;
-            color: #f1f5f9;
-            text-align: center;
-            padding: 2rem;
+            padding: 0;
         }
-        header {
-            margin-top: 5vh;
+        html {
+            scroll-behavior: smooth;
         }
-        h1 {
-            font-size: 2.5rem;
-            color: #ccd6f6;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark-navy);
+            color: var(--light-slate);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        p {
-            font-size: 1.2rem;
-            margin-top: 1rem;
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--lightest-slate);
+            margin-bottom: 1rem;
         }
-        .buttons {
-            margin-top: 2rem;
+        section {
+            padding: 80px 0;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 50px;
         }
-        .buttons a {
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
             display: inline-block;
-            margin: 0.5rem;
+        }
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--blue);
+        }
+        a {
+            color: var(--blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            color: var(--green);
+        }
+        .btn {
+            display: inline-block;
             padding: 0.75rem 1.5rem;
-            background-color: #1e293b;
-            color: #f1f5f9;
-            border: 2px solid #38bdf8;
-            border-radius: 8px;
+            background-color: transparent;
+            color: var(--blue);
+            border: 2px solid var(--blue);
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
             text-decoration: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--blue);
+            transform: translateY(-3px);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(10, 25, 47, 0.95);
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        nav.scrolled {
+            box-shadow: 0 10px 30px -10px var(--navy-shadow);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.5rem;
             font-weight: bold;
-            transition: background 0.3s;
+            color: var(--blue);
         }
-        .buttons a:hover {
-            background-color: #38bdf8;
-            color: #0f172a;
+        .nav-links {
+            display: flex;
+            list-style: none;
         }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            color: var(--lightest-slate);
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--blue);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 100px;
+        }
+        .hero-subtitle {
+            color: var(--blue);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--lightest-slate);
+        }
+        .hero-tagline {
+            font-size: 2.5rem;
+            color: var(--slate);
+            margin-bottom: 20px;
+        }
+        .hero-description {
+            max-width: 600px;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 50px;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-image {
+            flex: 0 0 300px;
+            position: relative;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 5px;
+            filter: grayscale(100%) contrast(1.2);
+            transition: all 0.3s ease;
+        }
+        .about-image:hover img {
+            filter: none;
+        }
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--blue);
+            border-radius: 5px;
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+        .about-image:hover::after {
+            transform: translate(-7px, -7px);
+        }
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(140px, 200px));
+            gap: 10px;
+            margin-top: 20px;
+            list-style: none;
+        }
+        .skills-list li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.95rem;
+        }
+        .skills-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--blue);
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .project-card {
+            background: var(--light-navy);
+            border-radius: 5px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .project-folder {
+            color: var(--blue);
+            font-size: 2rem;
+        }
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+        .project-links a {
+            font-size: 1.2rem;
+        }
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+        }
+        .project-description {
+            font-size: 0.95rem;
+            color: var(--slate);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: var(--slate);
+        }
+        .project-tech span {
+            margin-right: 15px;
+        }
+        
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 200px;
+        }
+        .contact-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .contact-subtitle {
+            color: var(--blue);
+            margin-bottom: 20px;
+        }
+        .contact-text {
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
         footer {
-            margin-top: 5rem;
-            font-size: 0.9rem;
-            color: #94a3b8;
+            padding: 30px 0;
+            text-align: center;
+            background: var(--navy);
         }
-        footer a {
-            color: #38bdf8;
-            text-decoration: none;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            list-style: none;
+        }
+        .social-links a {
+            color: var(--slate);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--blue);
+            transform: translateY(-3px);
+        }
+        .footer-text {
+            color: var(--slate);
+            font-size: 0.9rem;
+        }
+        .footer-text a {
+            color: var(--blue);
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 15px 30px;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--light-navy);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.3s ease;
+                z-index: 99;
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .nav-links li {
+                margin: 20px 0;
+            }
+            .menu-toggle {
+                display: block;
+                z-index: 100;
+            }
+            section {
+                padding: 60px 30px;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-tagline {
+                font-size: 1.8rem;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-image {
+                margin: 40px auto 0;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            #hero {
+                padding-top: 80px;
+                height: auto;
+                min-height: 100vh;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Neruu11's Website</h1>
-        <p>This site is hosted on GitHub Pages.</p>
-        <p>Follow me and connect below!</p>
-        
-        <div class="buttons">
-            <a href="https://github.com/Neruu11" target="_blank">GitHub</a>
-            <a href="https://www.instagram.com/yourusername" target="_blank">Instagram</a>
-            <a href="https://www.linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Neruu11</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="/resume.pdf" target="_blank">Resume</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
+    <!-- Hero Section -->
+    <section id="hero" class="fade-in">
+        <p class="hero-subtitle">Hi, my name is</p>
+        <h1 class="hero-title">Neruu11.</h1>
+        <h2 class="hero-tagline">I build things for the web.</h2>
+        <p class="hero-description">
+            I'm a web developer specializing in creating exceptional digital experiences. 
+            Currently, I'm focused on building accessible, human-centered products.
+        </p>
+        <a href="#projects" class="btn">Check out my work!</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Hello! My name is Neruu11, and I enjoy creating things that live on the internet. 
+                    My interest in web development started back in 2018 when I decided to try customizing WordPress themes — 
+                    turns out hacking together a custom theme taught me a lot about HTML & CSS!
+                </p>
+                <p>
+                    Fast-forward to today, and I've had the privilege of working at a start-up, a medium-sized agency, and a large corporation. 
+                    My main focus these days is building accessible, inclusive products and digital experiences.
+                </p>
+                <p>
+                    Here are a few technologies I've been working with recently:
+                </p>
+                <ul class="skills-list">
+                    <li>JavaScript (ES6+)</li>
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <li>TypeScript</li>
+                    <li>Tailwind CSS</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="/api/placeholder/300/300" alt="Profile Picture" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="fade-in">
+        <h2>Automation Solutions I've Built</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-folder">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Neruu11/invoice-automator" target="_blank" aria-label="GitHub Repository">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://invoice-automator.com" target="_blank" aria-label="Live Demo">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <h3 class="project-title">Invoice Processing Automation</h3>
+                <p class="project-description">
+                    An automated system that extracts data from invoices, categorizes expenses, and generates financial reports. 
+                    Helped a small accounting firm reduce manual data entry by 85% and eliminate human error.
+                </p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>OCR Technology</span>
+                    <span>Google Cloud</span>
+                    <span>QuickBooks API</span>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-folder">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Neruu11/appointment-scheduler" target="_blank" aria-label="GitHub Repository">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://smart-scheduler.com" target="_blank" aria-label="Live Demo">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <h3 class="project-title">Smart Appointment Scheduler</h3>
+                <p class="project-description">
+                    An intelligent scheduling system that automatically books appointments, sends reminders, and manages cancellations. 
+                    Reduced scheduling conflicts by 95% for a medical clinic and saved 20+ hours per week.
+                </p>
+                <div class="project-tech">
+                    <span>JavaScript</span>
+                    <span>Node.js</span>
+                    <span>Twilio API</span>
+                    <span>Google Calendar API</span>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-folder">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Neruu11/data-sync-tool" target="_blank" aria-label="GitHub Repository">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://data-sync-tool.com" target="_blank" aria-label="Live Demo">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <h3 class="project-title">Multi-Platform Data Synchronizer</h3>
+                <p class="project-description">
+                    A system that automatically synchronizes customer data across multiple platforms (CRM, email marketing, e-commerce). 
+                    Eliminated duplicate entries and manual updates for an online retailer.
+                </p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>RESTful APIs</span>
+                    <span>PostgreSQL</span>
+                    <span>Docker</span>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-folder">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Neruu11/social-media-automator" target="_blank" aria-label="GitHub Repository">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://social-media-automator.com" target="_blank" aria-label="Live Demo">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <h3 class="project-title">Social Media Marketing Automation</h3>
+                <p class="project-description">
+                    A comprehensive system that schedules posts, analyzes engagement metrics, and optimizes content strategies across multiple platforms.
+                    Increased social media engagement by 40% for a small business.
+                </p>
+                <div class="project-tech">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>Social Media APIs</span>
+                    <span>Analytics Tools</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <p class="contact-subtitle">What's Next?</p>
+        <h2 class="contact-title">Get In Touch</h2>
+        <p class="contact-text">
+            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, 
+            I'll do my best to get back to you!
+        </p>
+        <a href="mailto:youremail@example.com" class="btn">Say Hello</a>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>Made with love by <a href="https://github.com/Neruu11" target="_blank">Neruu11</a></p>
+        <ul class="social-links">
+            <li>
+                <a href="https://github.com/Neruu11" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/yourusername" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+        </ul>
+        <p class="footer-text">
+            Designed & Built by <a href="https://github.com/Neruu11" target="_blank">Neruu11</a>
+        </p>
     </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenu.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // Scroll animation
+        const faders = document.querySelectorAll('.fade-in');
+        
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -100px 0px"
+        };
+        
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('appear');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+        
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        // Smooth scrolling for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jhunnel Balasabas's portfolio website showcasing web development projects and skills">
-    <meta name="keywords" content="created the website for educational purposes only, portfolio, frontend, Jhunnel Balasabas">
+    <meta name="description" content="Jhunnel Balasabas's portfolio website showcasing customer service expertise and automation projects">
+    <meta name="keywords" content="customer service, support agent, automation, Jhunnel Balasabas">
     <meta name="author" content="Jhunnel Balasabas">
-    <title>Jhunnel Balasabas | Created the website for educational purposes only</title>
+    <title>Jhunnel Balasabas | Customer Service Professional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base Styles */
@@ -245,6 +245,62 @@
             color: var(--blue);
         }
         
+        /* Experience Section */
+        #experience {
+            background-color: var(--background);
+        }
+        
+        .experience-item {
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: var(--white);
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .experience-title {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+        
+        .experience-company {
+            color: var(--blue);
+            font-weight: 600;
+        }
+        
+        .experience-duration {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .experience-description {
+            margin-bottom: 20px;
+        }
+        
+        .experience-highlights {
+            list-style: none;
+        }
+        
+        .experience-highlights li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .experience-highlights li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--blue);
+        }
+        
         /* Projects Section */
         .projects-grid {
             display: grid;
@@ -313,13 +369,52 @@
             margin-right: 15px;
         }
         
+        /* Achievements Section */
+        #achievements {
+            background-color: var(--white);
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .achievement-card {
+            background-color: var(--background);
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .achievement-icon {
+            font-size: 2.5rem;
+            color: var(--blue);
+            margin-bottom: 15px;
+        }
+        
+        .achievement-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .achievement-description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
         /* Contact Section */
         #contact {
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
             padding-bottom: 150px;
-            background-color: var(--white);
+            background-color: var(--background);
         }
         
         .contact-title {
@@ -337,6 +432,25 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-icon {
+            color: var(--blue);
+            font-size: 1.2rem;
         }
         
         /* Footer */
@@ -428,7 +542,8 @@
                 margin: 40px auto 0;
             }
             
-            .projects-grid {
+            .projects-grid, 
+            .achievements-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -436,6 +551,15 @@
                 padding-top: 80px;
                 height: auto;
                 min-height: 100vh;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -450,7 +574,9 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="/resume.pdf" target="_blank">Resume</a></li>
             </ul>
@@ -461,12 +587,13 @@
     <section id="hero">
         <p class="hero-subtitle">Hi, my name is</p>
         <h1 class="hero-title">Jhunnel Balasabas.</h1>
-        <h2 class="hero-tagline">I create AI solutions that automate work.</h2>
+        <h2 class="hero-tagline">I deliver exceptional customer support.</h2>
         <p class="hero-description">
-            I'm an AI specialist and automation expert focused on developing intelligent systems that solve real-world problems.
-            Currently, I'm building solutions that help businesses work smarter, not harder.
+            I'm a customer service professional with nearly 3 years of experience, specializing in delivering excellent support 
+            while leveraging automation to improve efficiency. Currently, I'm focusing on creating solutions that enhance 
+            customer experiences through improved response times and personalized service.
         </p>
-        <a href="#projects" class="btn">Check out my work!</a>
+        <a href="#contact" class="btn">Get In Touch</a>
     </section>
 
     <!-- About Section -->
@@ -475,35 +602,67 @@
         <div class="about-content">
             <div class="about-text">
                 <p>
-                    Hello! My name is Jhunnel Balasabas, and I'm passionate about creating AI-driven automation solutions. 
-                    My journey began in 2018 when I built my first machine learning model to solve a real business problem —
-                    that experience showed me the incredible potential of AI to transform how we work.
+                    Hello! I'm Jhunnel Balasabas, a passionate customer service professional with a strong background in both voice and 
+                    non-voice support. My journey in customer service began during my time at Qualfon Philippines, where I quickly 
+                    discovered my talent for solving complex customer issues with empathy and efficiency.
                 </p>
                 <p>
-                    Fast-forward to today, and I've implemented automation solutions for startups, mid-sized companies, and enterprise organizations.
-                    My main focus is developing intelligent systems that save time, reduce costs, and eliminate repetitive tasks.
+                    What sets me apart is my ability to combine technical knowledge with excellent communication skills. 
+                    I believe that great customer service is about more than just resolving issues—it's about creating positive experiences 
+                    that build lasting relationships between customers and brands.
                 </p>
                 <p>
-                    Here are a few technologies I've been working with recently:
+                    Recently, I've been focusing on developing automation tools that streamline customer service workflows, allowing me to 
+                    assist customers more efficiently while maintaining the personal touch that's essential to quality support.
+                </p>
+                <p>
+                    Here are some of my key skills:
                 </p>
                 <ul class="skills-list">
-                    <li>JavaScript (ES6+)</li>
-                    <li>React</li>
-                    <li>Node.js</li>
-                    <li>TypeScript</li>
-                    <li>Tailwind CSS</li>
-                    <li>Python</li>
+                    <li>Remote Customer Support</li>
+                    <li>CRM Software (Salesforce)</li>
+                    <li>Written Communication</li>
+                    <li>Verbal Communication</li>
+                    <li>Time Management</li>
+                    <li>Self-Motivation</li>
+                    <li>Virtual Collaboration</li>
+                    <li>Problem-Solving</li>
                 </ul>
             </div>
             <div class="about-image">
-                <img src="/api/placeholder/300/300" alt="Profile Picture" />
+                <img src="/api/placeholder/300/300" alt="Jhunnel Balasabas" />
             </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <h3 class="experience-title">Customer Service Representative</h3>
+                    <p class="experience-company">Qualfon Philippines Inc</p>
+                </div>
+                <p class="experience-duration">August 2022 - April 2025</p>
+            </div>
+            <p class="experience-description">
+                At Qualfon, a global business services company specializing in business process outsourcing (BPO), 
+                I provided exceptional customer support through multiple channels while continuously improving my skills.
+            </p>
+            <ul class="experience-highlights">
+                <li>Delivered customer support via voice and chat for 50+ clients daily using internal CRM tools</li>
+                <li>Maintained a 95% customer satisfaction rate; earned "Top Agent" award in 2024</li>
+                <li>Seamlessly transitioned from voice to non-voice support, demonstrating adaptability and written communication skills</li>
+                <li>Collaborated with team members via Slack in a remote setting</li>
+                <li>Developed and implemented an automation script to streamline repetitive customer service tasks, significantly improving efficiency and response times</li>
+            </ul>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
-        <h2>Some Things I've Built</h2>
+        <h2>My Projects</h2>
         <div class="projects-grid">
             <!-- Project 1 -->
             <div class="project-card">
@@ -512,24 +671,19 @@
                         <i class="fas fa-folder"></i>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/jhunnelbalasabas/project-1" target="_blank" aria-label="GitHub Repository">
+                        <a href="https://github.com/jbalasabas1/customer-service-automation" target="_blank" aria-label="GitHub Repository">
                             <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://project-1.com" target="_blank" aria-label="Live Demo">
-                            <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
                 </div>
-                <h3 class="project-title">AI Customer Service Bot</h3>
+                <h3 class="project-title">Customer Service Automation Script</h3>
                 <p class="project-description">
-                    An intelligent chatbot that handles customer inquiries automatically using natural language processing.
-                    Reduces response time by 80% and improves customer satisfaction.
+                    Created a custom automation tool that streamlines repetitive customer service tasks, cutting response time by 40% and increasing daily ticket resolution. This project demonstrates my commitment to continuous improvement and efficiency.
                 </p>
                 <div class="project-tech">
-                    <span>Python</span>
-                    <span>TensorFlow</span>
-                    <span>NLP</span>
-                    <span>DialogFlow</span>
+                    <span>JavaScript</span>
+                    <span>Automation</span>
+                    <span>CRM Integration</span>
                 </div>
             </div>
             
@@ -540,24 +694,19 @@
                         <i class="fas fa-folder"></i>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/jhunnelbalasabas/project-2" target="_blank" aria-label="GitHub Repository">
+                        <a href="https://github.com/jbalasabas1/response-templates" target="_blank" aria-label="GitHub Repository">
                             <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://project-2.com" target="_blank" aria-label="Live Demo">
-                            <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
                 </div>
-                <h3 class="project-title">Predictive Analytics Dashboard</h3>
+                <h3 class="project-title">Customer Response Template Library</h3>
                 <p class="project-description">
-                    An automated system that analyzes business data and predicts future trends.
-                    Features interactive visualizations and automated report generation.
+                    Developed a comprehensive library of response templates for common customer inquiries, ensuring consistent communication and reducing response time while maintaining personalization options.
                 </p>
                 <div class="project-tech">
-                    <span>Python</span>
-                    <span>Scikit-learn</span>
-                    <span>Tableau</span>
-                    <span>AWS</span>
+                    <span>Documentation</span>
+                    <span>Customer Support</span>
+                    <span>Knowledge Base</span>
                 </div>
             </div>
             
@@ -568,25 +717,66 @@
                         <i class="fas fa-folder"></i>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/jhunnelbalasabas/project-3" target="_blank" aria-label="GitHub Repository">
+                        <a href="https://github.com/jbalasabas1/workflow-tracker" target="_blank" aria-label="GitHub Repository">
                             <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://project-3.com" target="_blank" aria-label="Live Demo">
-                            <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
                 </div>
-                <h3 class="project-title">Workflow Automation Suite</h3>
+                <h3 class="project-title">Customer Support Workflow Tracker</h3>
                 <p class="project-description">
-                    A tool that automates repetitive business processes using AI.
-                    Cuts processing time by 65% and eliminates human error in data entry.
+                    Created a simple tracking system to monitor customer support metrics, including response times, resolution rates, and customer satisfaction scores. This tool helped identify bottlenecks and improve team performance.
                 </p>
                 <div class="project-tech">
-                    <span>Python</span>
-                    <span>RPA</span>
-                    <span>Docker</span>
-                    <span>Azure</span>
+                    <span>Data Analysis</span>
+                    <span>Performance Tracking</span>
+                    <span>Process Improvement</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <h2>Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3 class="achievement-title">Top Agent Award (2024)</h3>
+                <p class="achievement-description">
+                    Recognized for outstanding customer service performance, maintaining the highest customer satisfaction rates among team members.
+                </p>
+            </div>
+            
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3 class="achievement-title">FCR King (May 2024)</h3>
+                <p class="achievement-description">
+                    Recognized as top performer for delivering outstanding excellent customer service and achieving the highest First Call Resolution rate.
+                </p>
+            </div>
+            
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h3 class="achievement-title">Top Trainee (2022)</h3>
+                <p class="achievement-description">
+                    Recognized as top trainee based on outstanding performance during the initial training program for customer support.
+                </p>
+            </div>
+            
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3 class="achievement-title">Perfect Attendance (2022)</h3>
+                <p class="achievement-description">
+                    Received award for perfect attendance, demonstrating reliability and commitment to professional responsibilities.
+                </p>
             </div>
         </div>
     </section>
@@ -596,38 +786,49 @@
         <p class="contact-subtitle">What's Next?</p>
         <h2 class="contact-title">Get In Touch</h2>
         <p class="contact-text">
-            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, 
-            I'll do my best to get back to you!
+            I'm currently looking for new opportunities in customer support and service automation. Whether you have a question
+            or would like to discuss potential collaborations, I'd love to hear from you!
         </p>
-        <a href="mailto:youremail@example.com" class="btn">Say Hello</a>
+        <a href="mailto:jbalasabas07@gmail.com" class="btn">Say Hello</a>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <a href="mailto:jbalasabas07@gmail.com">jbalasabas07@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <a href="tel:+639761199295">09761199295</a>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <a href="https://linkedin.com/in/jhunnel-balasabas-649834223" target="_blank">LinkedIn</a>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <ul class="social-links">
             <li>
-                <a href="https://github.com/jhunnelbalasabas" target="_blank" aria-label="GitHub">
+                <a href="https://github.com/jbalasabas1" target="_blank" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
             </li>
             <li>
-                <a href="https://www.instagram.com/yourusername" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/jhunnel-balasabas-649834223" target="_blank" aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
                 </a>
             </li>
         </ul>
         <p class="footer-text">
-            Designed & Built by <a href="https://github.com/jhunnelbalasabas" target="_blank">Jhunnel Balasabas</a>
+            Designed & Built by <a href="https://github.com/jbalasabas1" target="_blank">Jhunnel Balasabas</a>
         </p>
     </footer>
 
@@ -643,6 +844,29 @@
             } else {
                 mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
             }
+        });
+        
+        // Add smooth scrolling to all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
         });
     </script>
 </body>
